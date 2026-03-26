@@ -98,9 +98,9 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-    .topbar a { color: var(--gold-lt); text-decoration: none; }
+    .topbar a { color: var(--gold-lt); text-decoration: none; font-size: 1rem; }
     .topbar a:hover { color: var(--orange); }
-    .topbar-items { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .topbar-items { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
 
     /* ─── NAVBAR ─── */
     nav {
@@ -118,7 +118,7 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    .nav-logo img { height: 70px; width: auto; }
+    .nav-logo img { height: 100px; width: auto; }
     .nav-links {
       display: flex;
       gap: 32px;
@@ -673,6 +673,46 @@
     }
     .social-link:hover { background: var(--gold); color: #000; border-color: var(--gold); }
 
+    /* ─── FOOTER PHONE CTA ─── */
+    .footer-phone-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--orange), var(--gold));
+      color: #000;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: .05em;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      transition: filter .25s, transform .25s;
+      margin-top: 4px;
+    }
+    .footer-phone-cta:hover { filter: brightness(1.15); transform: translateY(-2px); }
+    .footer-phone-icon { font-size: 1.2rem; }
+
+    /* ─── WHATSAPP FLOATING BUTTON ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      background: #25D366;
+      color: #fff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(37,211,102,.45);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,.6); }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -687,7 +727,7 @@
       /* Nav */
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
-      .nav-logo img { height: 54px; }
+      .nav-logo img { height: 70px; }
 
       /* Topbar — hide address on small screens */
       .topbar-address { display: none; }
@@ -809,8 +849,8 @@
       <span>&#128205; 5893 Main St, Niagara Falls ON L2G 5Z7</span>
     </div>
     <div class="topbar-items">
-      <a href="tel:+16479210117">&#128222; +1 (647) 921-0117</a>
-      <a href="mailto:guvenyerlikaya04@gmail.com">&#9993; guvenyerlikaya04@gmail.com</a>
+      <a href="tel:+16479210117" aria-label="Call us"><i class="fa-solid fa-phone"></i></a>
+      <a href="mailto:guvenyerlikaya04@gmail.com" aria-label="Email us"><i class="fa-solid fa-envelope"></i></a>
     </div>
   </div>
 </div>
@@ -822,7 +862,6 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -841,7 +880,6 @@
   <button class="mobile-close" onclick="toggleMenu()">&#10005;</button>
   <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
   <a href="#process" onclick="toggleMenu()">Process</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="tel:+16479210117" class="btn btn-primary" onclick="toggleMenu()">Call Now</a>
@@ -932,29 +970,26 @@
     <div class="services-grid">
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80" alt="Plastering" />
+        <img src="images/plastering.jpeg" alt="Plastering" />
         <div class="service-overlay">
-          <span class="service-icon">&#129521;</span>
-          <h3>Plaster</h3>
+          <h3>Plastering</h3>
           <p>Smooth, durable plaster finishes for walls and ceilings — classic or contemporary.</p>
           <div class="service-bar"></div>
         </div>
       </div>
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Painting" />
+        <img src="images/painting.jpeg" alt="Painting" />
         <div class="service-overlay">
-          <span class="service-icon">&#127912;</span>
-          <h3>Paint</h3>
+          <h3>Painting</h3>
           <p>Interior and exterior painting with premium paints and flawless prep work.</p>
           <div class="service-bar"></div>
         </div>
       </div>
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&q=80" alt="Flooring" />
+        <img src="images/flooring.jpeg" alt="Flooring" />
         <div class="service-overlay">
-          <span class="service-icon">&#127968;</span>
           <h3>Flooring</h3>
           <p>Hardwood, laminate, vinyl and engineered flooring installed to perfection.</p>
           <div class="service-bar"></div>
@@ -962,9 +997,8 @@
       </div>
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Carpet" />
+        <img src="images/carpet.jpeg" alt="Carpet" />
         <div class="service-overlay">
-          <span class="service-icon">&#128167;</span>
           <h3>Carpet</h3>
           <p>Supply and installation of all carpet styles — residential and commercial.</p>
           <div class="service-bar"></div>
@@ -972,9 +1006,8 @@
       </div>
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=600&q=80" alt="Stucco" />
+        <img src="images/stucco.jpeg" alt="Stucco" />
         <div class="service-overlay">
-          <span class="service-icon">&#127968;</span>
           <h3>Stucco</h3>
           <p>Traditional and synthetic stucco applications for lasting exterior protection and curb appeal.</p>
           <div class="service-bar"></div>
@@ -982,39 +1015,35 @@
       </div>
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Outdoor" />
+        <img src="images/concrete.jpeg" alt="Concrete" />
         <div class="service-overlay">
-          <span class="service-icon">&#127794;</span>
-          <h3>Outdoor</h3>
-          <p>Patios, walkways, exterior cladding and landscaping hardscape services.</p>
+          <h3>Concrete</h3>
+          <p>Driveways, walkways, patios and foundations — precision concrete work built to last.</p>
           <div class="service-bar"></div>
         </div>
       </div>
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Tiles" />
+        <img src="images/tile.jpeg" alt="Tile Work" />
         <div class="service-overlay">
-          <span class="service-icon">&#9642;</span>
-          <h3>Tiles</h3>
+          <h3>Tile Work</h3>
           <p>Ceramic, porcelain, and natural stone tile for kitchens, bathrooms and beyond.</p>
           <div class="service-bar"></div>
         </div>
       </div>
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Drywall" />
+        <img src="images/kitchen.jpeg" alt="Kitchen Remodeling" />
         <div class="service-overlay">
-          <span class="service-icon">&#128295;</span>
-          <h3>Drywall</h3>
-          <p>Hanging, taping, mudding and sanding — smooth walls ready to paint.</p>
+          <h3>Kitchen Repair</h3>
+          <p>Cabinet repairs, countertop replacements, fixture upgrades and kitchen restorations done right.</p>
           <div class="service-bar"></div>
         </div>
       </div>
 
       <div class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Demolition" style="filter:grayscale(.5) contrast(1.2);" />
+        <img src="images/demolition.jpeg" alt="Demolition" />
         <div class="service-overlay">
-          <span class="service-icon">&#128296;</span>
           <h3>Demolition</h3>
           <p>Safe, controlled interior and selective demolition — site cleared and ready for the next phase.</p>
           <div class="service-bar"></div>
@@ -1059,32 +1088,6 @@
 </section>
 
 <!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="container">
-    <div class="gallery-header reveal">
-      <span class="section-tag">Our Work</span>
-      <h2 class="section-title">Project <span>Gallery</span></h2>
-      <div class="divider"></div>
-    </div>
-    <div class="gallery-grid reveal">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&q=80" alt="Flooring project" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Painting project" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Tile work" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&q=80" alt="Stucco exterior" />
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Outdoor work" />
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- CTA STRIP -->
 <section class="cta-strip">
@@ -1183,47 +1186,52 @@
 
       <div class="contact-form reveal">
         <h3>Request a Free Quote</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="John" />
+        <div id="form-success" style="display:none;background:linear-gradient(135deg,#2d6a4f,#52b788);color:#fff;padding:20px 24px;border-radius:4px;font-weight:600;font-size:1rem;text-align:center;margin-bottom:16px;">
+          &#10003; Your request has been sent! We'll be in touch shortly.
+        </div>
+        <form id="quoteForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="firstName" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" name="phone" placeholder="+1 (000) 000-0000" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="your@email.com" />
+            </div>
           </div>
           <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Smith" />
+            <label>Service Required</label>
+            <select name="service" required>
+              <option value="">Select a service...</option>
+              <option>Plastering</option>
+              <option>Painting</option>
+              <option>Flooring</option>
+              <option>Carpet</option>
+              <option>Stucco</option>
+              <option>Concrete</option>
+              <option>Tile Work</option>
+              <option>Kitchen Repair</option>
+              <option>Demolition</option>
+              <option>Multiple Services</option>
+            </select>
           </div>
-        </div>
-        <div class="form-row">
           <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" placeholder="+1 (000) 000-0000" />
+            <label>Tell Us About Your Project</label>
+            <textarea name="message" placeholder="Describe your project, approximate square footage, timeline, etc." required></textarea>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Service Required</label>
-          <select>
-            <option value="">Select a service...</option>
-            <option>Plaster</option>
-            <option>Paint</option>
-            <option>Flooring</option>
-            <option>Carpet</option>
-            <option>Stucco</option>
-            <option>Outdoor / Hardscape</option>
-            <option>Tiles</option>
-            <option>Drywall</option>
-            <option>Demolition</option>
-            <option>Multiple Services</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Tell Us About Your Project</label>
-          <textarea placeholder="Describe your project, approximate square footage, timeline, etc."></textarea>
-        </div>
-        <button class="btn btn-primary form-submit" onclick="handleSubmit(event)">Send My Request</button>
+          <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send My Request</button>
+        </form>
       </div>
     </div>
   </div>
@@ -1256,7 +1264,6 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#process">Our Process</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1266,9 +1273,11 @@
         <p>
           5893 Main St<br>
           Niagara Falls, ON L2G 5Z7<br><br>
-          <a href="tel:+16479210117" style="color:var(--gold-lt);text-decoration:none;">+1 (647) 921-0117</a><br><br>
-          <a href="mailto:guvenyerlikaya04@gmail.com" style="color:var(--gold-lt);text-decoration:none;word-break:break-all;">guvenyerlikaya04@gmail.com</a>
         </p>
+        <a href="tel:+16479210117" class="footer-phone-cta">
+          <span class="footer-phone-icon">&#128222;</span>
+          +1 (647) 921-0117
+        </a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1304,16 +1313,35 @@
     el.style.transitionDelay = `${i * 0.08}s`;
   });
 
-  // Form submit
-  function handleSubmit(e) {
+  // Form submit — Google Apps Script integration
+  const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL'; // Replace with your deployed Apps Script URL
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target;
-    btn.textContent = 'Message Sent!';
-    btn.style.background = 'linear-gradient(135deg,#2d6a4f,#52b788)';
-    setTimeout(() => {
+    const form = document.getElementById('quoteForm');
+    const btn = document.getElementById('submitBtn');
+    const successBox = document.getElementById('form-success');
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      form.style.display = 'none';
+      successBox.style.display = 'block';
+    } catch (err) {
       btn.textContent = 'Send My Request';
-      btn.style.background = '';
-    }, 3000);
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call us directly.');
+    }
   }
 
   // Active nav link highlight on scroll
@@ -1328,5 +1356,11 @@
     });
   });
 </script>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="whatsapp-float" href="https://wa.me/16479210117" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
 </body>
 </html>
