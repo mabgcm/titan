@@ -1329,14 +1329,18 @@
     const payload = Object.fromEntries(data.entries());
 
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ secret: 'titanforge_2024', ...payload })
       });
-      form.style.display = 'none';
-      successBox.style.display = 'block';
+      const result = await res.json();
+      if (result.ok) {
+        form.style.display = 'none';
+        successBox.style.display = 'block';
+      } else {
+        throw new Error(result.error);
+      }
     } catch (err) {
       btn.textContent = 'Send My Request';
       btn.disabled = false;
